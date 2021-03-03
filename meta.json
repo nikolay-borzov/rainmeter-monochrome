@@ -1,0 +1,13 @@
+{
+  "Name": "Monochrome",
+  "Author": "nikolay-borzov",
+  "Version": "1.0.0",
+  "Plugins": [
+    "HWiNFO.dll"
+  ],
+  "Minimum requirements": {
+    "Rainmeter": "4.3.1.3321",
+    "Windows": "10"
+  },
+  "Variable files": "Monochrome\\@Resources\\Config.inc"
+}
