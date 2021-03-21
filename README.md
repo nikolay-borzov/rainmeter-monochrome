@@ -29,6 +29,14 @@ Displays computer uptime
 
 ![Uptime skin image](images/uptime.png)
 
+<details>
+  <summary>Configuration</summary>
+
+  See `Uptime` section in `Config.inc`
+
+  - `UptimeBorderTop`, `UptimeBorderRight`, `UptimeBorderBottom` and `UptimeBorderLeft` - Toggles skin border visibility
+</details>
+
 ### CPU
 
 Displays CPU usage/temperature values and values as line meter, processes count and 1-5 top processes. When "CPU" label is hovered the processor name is displayed as a tooltip
@@ -40,9 +48,10 @@ Displays CPU usage/temperature values and values as line meter, processes count 
 
   See `CPU` section in `Config.inc`
 
-  - `HWiNFO_CPU0_DTS_SensorId` and `HWiNFO_CPU0_DTS_SensorInstance` - CPU DTS Sensor ID and Instance (**Sensor Details** section in "HWiNFO Shared Memory Viewer"). See "Setting HWiNFO related values" section in `Config.inc` for more details
-  - `HWiNFO_CPU0_DTS_CoreMax` - CPU DTS Core Max Entry ID (**Entry Details** section)
+  - `HWiNFO_CPU0_SensorId` and `HWiNFO_CPU0_SensorInstance` - CPU Sensor ID and Instance (**Sensor Details** section in "HWiNFO Shared Memory Viewer") that provides CPU temperature value. See "Setting HWiNFO related values" section in `Config.inc` for more details
+  - `HWiNFO_CPU0_Temp` - CPU temperature Entry ID (**Entry Details** section)
   - `CPUTopProcessesCount` - Number of top processes using CPU displayed. Setting value to `0` hides "Top processes" block
+  - `CPUBorderTop`, `CPUBorderRight`, `CPUBorderBottom` and `CPUBorderLeft` - Toggles skin border visibility
 </details>
 
 ### Memory
@@ -57,6 +66,7 @@ Displays RAM usage and 1-5 top processes using RAM. When used memory bar is hove
   See `Memory` section in `Config.inc`
 
   - `MemoryTopProcessesCount` - Number of top processes using RAM displayed. Setting value to `0` hides "Top processes" block
+  - `MemoryBorderTop`, `MemoryBorderRight`, `MemoryBorderBottom` and `MemoryBorderLeft` - Toggles skin border visibility
 </details>
 
 ### GPU
@@ -75,6 +85,7 @@ Displays GPU usage/temperature, fan speed, dedicated memory usage and 1-5 top pr
   - `HWiNFO_GPU0_Fan` - GPU Fan Entry ID
   - `GPUTopProcessesCount` - Number of top processes using GPU displayed. Setting value to `0` hides "Top processes" block
   - `GPU_Registry_GUID` - Registry key name where GPU name can be read. Value is displayed as a tooltip when "GPU" label is hovered
+  - `GPUBorderTop`, `GPUBorderRight`, `GPUBorderBottom` and `GPUBorderLeft` - Toggles skin border visibility
 </details>
 
 ### Network
@@ -88,8 +99,9 @@ Shows Download/Upload speed in kB/s and connections count
 
   See `Network` section in `Config.inc`
 
-  - `NetMaxDownloadMbits` and `NetMaxUploadMbits` - Maximum download/upload speed of your network. Use http://speedtest.net to get these values
-  - `NetInterface` - Network interface name. Set if default value doesn't match your network adapter
+  - `NetworkMaxDownloadMbits` and `NetworkMaxUploadMbits` - Maximum download/upload speed of your network. Use http://speedtest.net to get these values
+  - `NetworkInterface` - Network interface name. Set if default value doesn't match your network adapter
+  - `NetworkBorderTop`, `NetworkBorderRight`, `NetworkBorderBottom` and `NetworkBorderLeft` - Toggles skin border visibility
 </details>
 
 ### I/O
@@ -104,6 +116,7 @@ Displays I/O information (file, network and device I/Os).
   See `I/O` section in `Config.inc`
 
   - `IOTopProcessesCount` - Number of top processes using I/O displayed. Setting value to `0` hides "Top processes Read+Write" block
+  - `IOBorderTop`, `IOBorderRight`, `IOBorderBottom` and `IOBorderLeft` - Toggles skin border visibility
 </details>
 
 ### Drive
@@ -123,6 +136,8 @@ Displays drive's free space, temperature, activity, read/write speed
   - `HWiNFO_SMART_DriveTemperature` - S.M.A.R.T. Drive Temperature Entry ID (the same for all drives)
   - `Drive_1`...`Drive_5` - Drive's letter (e.g. `C:`)
   - `Drive_1_HWiNFOSensorInstance`...`Drive_5_HWiNFOSensorInstance` - S.M.A.R.T. Sensor Instance
+  -  `DrivesHeaderBorderTop`, `DrivesHeaderBorderRight`, `DrivesHeaderBorderBottom` and `DrivesHeaderBorderLeft` - Toggles Drives Header skin border visibility
+  - `Drive_1_BorderTop`...`Drive_5_BorderTop`, `Drive_1_BorderRight`...`Drive_5_BorderRight`, `Drive_1_BorderBottom`...`Drive_5_BorderBottom` and `Drive_1_BorderLeft`...`Drive_5_BorderLeft` - Toggles skin border visibility
 </details>
 
 ### Player
@@ -139,6 +154,7 @@ Displays currently playing track information - track title, track artist and tra
   - `PlayerName` - Player application name (see [supported players list](https://docs.rainmeter.net/manual/measures/nowplaying/#playerlist))
   - `PlayerTitle` - Skin header text (e.g. "My Jukebox")
   - `PlayerPath` - Player executable absolute path
+  - `PlayerBorderTop`, `PlayerBorderRight`, `PlayerBorderBottom` and `PlayerBorderLeft` - Toggles skin border visibility
 </details>
 
 ## Other configuration variables

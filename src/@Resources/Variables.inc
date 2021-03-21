@@ -70,7 +70,7 @@ LineMeterStringBottomFix=5
 SkinBackground=34,34,34,255
 MeterBackground=50,50,50,255
 MeterColor=150,150,150,255
-SeparatorColor=70,70,70,255
+SeparatorColor=50,50,50,255
 
 ; -------
 ; Symbols
@@ -98,3 +98,79 @@ UpdateDividerIOTopProcess=1
 TopProcessSubstitute="":"---"
 TopProcessIgnore=_Total|Idle|dwm|wmpnetwk|csrss|svchost|lsass|System|system|Memory Compression|wininit|RemindersServer|spoolsv|IpOverUsbSvc|WmiPrvSE
 
+; -------------------
+; Border toggle flags
+;--------------------
+; These ones are overridden per skin (see below)
+; 0 - hide, 1 - show
+BorderTop=0
+BorderRight=1
+BorderBottom=1
+BorderLeft=1
+
+; Default border flags pes skin
+
+UptimeBorderTop=0
+UptimeBorderRight=1
+UptimeBorderBottom=1
+UptimeBorderLeft=1
+
+CPUBorderTop=0
+CPUBorderRight=1
+CPUBorderBottom=1
+CPUBorderLeft=1
+
+MemoryBorderTop=0
+MemoryBorderRight=1
+MemoryBorderBottom=1
+MemoryBorderLeft=1
+
+GPUBorderTop=0
+GPUBorderRight=1
+GPUBorderBottom=1
+GPUBorderLeft=1
+
+NetworkBorderTop=0
+NetworkBorderRight=1
+NetworkBorderBottom=1
+NetworkBorderLeft=1
+
+IOBorderTop=0
+IOBorderRight=1
+IOBorderBottom=1
+IOBorderLeft=1
+
+DrivesHeaderBorderTop=0
+DrivesHeaderBorderRight=1
+DrivesHeaderBorderBottom=1
+DrivesHeaderBorderLeft=1
+
+Drive_1_BorderTop=0
+Drive_1_BorderRight=1
+Drive_1_BorderBottom=1
+Drive_1_BorderLeft=1
+
+Drive_2_BorderTop=0
+Drive_2_BorderRight=1
+Drive_2_BorderBottom=1
+Drive_2_BorderLeft=1
+
+Drive_3_BorderTop=0
+Drive_3_BorderRight=1
+Drive_3_BorderBottom=1
+Drive_3_BorderLeft=1
+
+Drive_4_BorderTop=0
+Drive_4_BorderRight=1
+Drive_4_BorderBottom=1
+Drive_4_BorderLeft=1
+
+Drive_5_BorderTop=0
+Drive_5_BorderRight=1
+Drive_5_BorderBottom=1
+Drive_5_BorderLeft=1
+
+PlayerBorderTop=0
+PlayerBorderRight=1
+PlayerBorderBottom=1
+PlayerBorderLeft=1

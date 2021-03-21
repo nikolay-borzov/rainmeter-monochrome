@@ -154,8 +154,16 @@ X=0
 Y=#Padding#R
 UpdateDivider=-1
 
+; Use 2px border to reduce Direct2D "aliasing" effect.
 [BorderStyle]
-Shape=Path BorderPath | StrokeWidth 1 | Stroke Color #SeparatorColor#
-BorderPath=1,0 | LineTo 1,#CURRENTCONFIGHEIGHT# | LineTo (#SkinWidth# - 1),#CURRENTCONFIGHEIGHT# | LineTo (#SkinWidth# - 1),0
+; Top
+Shape=Line 0,1, #CURRENTCONFIGWIDTH#,1 | StrokeWidth (#BorderTop# * 2) | Extend CommonModifiers
+; Right
+Shape2=Line (#CURRENTCONFIGWIDTH#-1),0, (#CURRENTCONFIGWIDTH#-1),#CURRENTCONFIGHEIGHT# | StrokeWidth (#BorderRight# * 2) | Extend CommonModifiers
+; Bottom
+Shape3=Line 0,(#CURRENTCONFIGHEIGHT#-1), #CURRENTCONFIGWIDTH#,(#CURRENTCONFIGHEIGHT#-1) | StrokeWidth (#BorderBottom# * 2) | Extend CommonModifiers
+; Left
+Shape4=Line 1,0, 1,#CURRENTCONFIGHEIGHT# | StrokeWidth (#BorderLeft# * 2) | Extend CommonModifiers
+CommonModifiers=Stroke Color #SeparatorColor#
 DynamicVariables=1
 UpdateDivider=-1
