@@ -126,6 +126,7 @@ IOBorderLeft=1
 ; -------------
 ; Drives Header
 ; -------------
+
 ; 0 - hide, 1 - show
 DrivesHeaderBorderTop=0
 DrivesHeaderBorderRight=1
