@@ -25,7 +25,7 @@ XContentHalfStart=(#XEnd# - #ContentHalfWidth#)
 ; ---------------------
 BarHeight=20
 LineMeterHeight=50
-LineMeterHeightSmall=25
+LineMeterHeightSmall=(#LineMeterHeight# / 2)
 
 ; ----------
 ; Distances

@@ -1,7 +1,4 @@
 [Variables]
-; Set your system specific variables here
-; You can also override variables from `Variables.inc`
-
 ; -----------------------------
 ; Setting HWiNFO related values
 ; -----------------------------
@@ -18,14 +15,22 @@
 ; https://www.hwinfo.com/forum/threads/cpu_core_temperature_measuring_facts_fictions.148/
 ; https://forum.rainmeter.net/viewtopic.php?f=128&t=22169
 
-; -------------
-; Font settings
-; -------------
+
+; -----
+; Sizes
+; -----
+
+SkinWidth=280
+BarHeight=20
+LineMeterHeight=50
+
+; ----
+; Font
+; ----
 
 FontFace=JetBrains Mono
 FontSize=12
-; Line height in pixels.
-; Should be big enough to fit string with font size equal to FontSize
+; Line height in pixels. Should be big enough to fit string with font size equal to FontSize
 LineHeight=20
 FontSizeSmall=10
 ; Should be big enough to fit string with font size equal to FontSizeSmall
@@ -36,10 +41,54 @@ FontTopPaddingFix=1
 LineMeterStringTopFix=-3
 ; Align font string bottom inside line container
 LineMeterStringBottomFix=5
+; Border, Shadow or None
+StringEffect=Border
+; String effect color
+FontEffectColor=34,34,34,255
+; Default font color
+FontColor=255,255,255,255
+; Dimmed font color (less important information)
+FontColorDim=255,255,255,200
+; Font color for disabled label (not important information like zero write speed)
+FontColorDisabled=255,255,255,150
+
+; -----
+; Colors
+; -----
+
+SkinBackground=34,34,34,255
+; Meter box background color
+MeterBackground=50,50,50,255
+; Accent color
+MeterColor=150,150,150,255
+; Border color
+SeparatorColor=50,50,50,255
+
+; -------
+; Symbols
+; -------
+
+; Net in, disk write symbol ▼
+WriteSpeedPrefix="[\x25BC]"
+; Net out, disk read symbol ▲
+ReadSpeedPrefix="[\x25B2]"
+
+; ---------------
+; Update dividers
+; ---------------
+
+UpdateDividerTemp=3
+UpdateDividerFan=10
+UpdateDividerMemory=5
+UpdateDividerDriveSpace=30
+UpdateDividerCPUTopProcess=1
+UpdateDividerGPUTopProcess=1
+UpdateDividerIOTopProcess=1
 
 ; -----------
 ; Temperature
 ; -----------
+
 ; C, F, K
 TempUnit=C
 TempMax=100
@@ -47,6 +96,7 @@ TempMax=100
 ; ------
 ; Uptime
 ; ------
+
 ; 0 - hide, 1 - show
 UptimeBorderTop=0
 UptimeBorderRight=1
@@ -56,6 +106,7 @@ UptimeBorderLeft=1
 ; ---
 ; CPU
 ; ---
+
 HWiNFO_CPU0_SensorId=0xf0000400
 HWiNFO_CPU0_SensorInstance=0x0
 HWiNFO_CPU0_Temp=0x10000ff
@@ -82,12 +133,11 @@ MemoryBorderLeft=1
 ; ---
 ; GPU
 ; ---
+
 HWiNFO_GPU0_SensorId=0xe0002000
 HWiNFO_GPU0_SensorInstance=0x0
 HWiNFO_GPU0_Temp=0x1000000
 HWiNFO_GPU0_Fan=0x8000000
-; GUID for GPU inside HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\
-GPU_Registry_GUID={4D36E968-E325-11CE-BFC1-08002BE10318}
 ; 0-5
 GPUTopProcessesCount=2
 ; 0 - hide, 1 - show
@@ -104,7 +154,7 @@ GPUBorderLeft=1
 NetworkMaxDownloadMbits=94.33
 NetworkMaxUploadMbits=91.30
 ; Set this if needed. Default: Best
-; NetworkInterface=
+NetworkInterface=Best
 ; 0 - hide, 1 - show
 NetworkBorderTop=0
 NetworkBorderRight=1

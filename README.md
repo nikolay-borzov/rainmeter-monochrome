@@ -12,13 +12,18 @@ A minimalistic monochrome skins for [Rainmeter](https://www.rainmeter.net/)
   - [I/O](#io)
   - [Drive](#drive)
   - [Player](#player)
-- [Other configuration variables](#other-configuration-variables)
-- [Configuring font](#configuring-font)
+- [Other meter specific configuration variables](#other-meter-specific-configuration-variables)
+- [Common configuration](#common-configuration)
+  - [Sizes](#sizes)
+  - [Font](#font)
+  - [Colors](#colors)
+  - [Symbols](#symbols)
+  - [Update dividers](#update-dividers)
 
 ## Requirements
 
 - [Rainmeter](https://www.rainmeter.net/) 4.3.1 or higher
-- [HWiNFO](https://www.hwinfo.com/). Installer is preferable because Portable seems to have problems with autostart
+- [HWiNFO](https://www.hwinfo.com/). Use version < 7.0.0 unless you have Pro subscription (e.g. [v6.42](https://www.fosshub.com/HWiNFO-old.html), [read why](https://docs.rainmeter.net/tips/hwinfo/)). Installer is preferable because Portable seems to have problems with autostart
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font, unless you want use font of your choice
 
 ## Skins
@@ -121,7 +126,7 @@ Displays I/O information (file, network and device I/Os).
 
 ### Drive
 
-Displays drive's free space, temperature, activity, read/write speed
+Displays drive's free space, temperature, activity, read/write speed. When disk label is hovered a total size is displayed.
 
 ![Drive skin image](images/drive.png)
 
@@ -157,38 +162,22 @@ Displays currently playing track information - track title, track artist and tra
   - `PlayerBorderTop`, `PlayerBorderRight`, `PlayerBorderBottom` and `PlayerBorderLeft` - Toggles skin border visibility
 </details>
 
-## Other configuration variables
+## Other meter specific configuration variables
 
 See `Temperature` section in `Config.inc`
 
 - `TempUnit` - Temperature unit to use. `C` for Celsius, `F` for Fahrenheit, `K` for Kelvin
 - `TempMax`- Maximum temperature. It's needed for line meter
 
-You can also override some variables from `Variables.inc` by copying them to `Config.inc`:
+## Common configuration
 
-- `SkinWidth` - Skin width
+### Sizes
+
+- `SkinWidth` - Skin width in pixels
 - `BarHeight` - Height of a bar meter
 - `LineMeterHeight` - Height of a line meter
-- `LineMeterHeightSmall` - Height of a short line meter
-- `FontColor` - Default font color
-- `FontColorDim` - Dimmed font color (less important information)
-- `FontColorDisabled` - Font color for disabled label (not important information like zero write speed)
-- `StringEffect` and `FontEffectColor` - Text effect (`Border`, `Shadow` or `None`) and its color
-- `SkinBackground` - Skin background color
-- `MeterBackground` - Meter background color
-- `MeterColor` - Skin accent color
-- `SeparatorColor` - Skin border color
-- `WriteSpeedPrefix` and `ReadSpeedPrefix` - Symbols to use as prefixes for write/read speed
-- `UpdateDividerCPUTopProcess` - CPU Top processes update divider ([read more about dividers](https://docs.rainmeter.net/tips/update-guide/))
-- `UpdateDividerMemoryTopProcess` - Memory Top processes update divider
-- `UpdateDividerGPUTopProcess` - GPU Top processes update divider
-- `UpdateDividerIOTopProcess` - I/O Top processes update divider
-- `UpdateDividerTemp` - Temperature update divider
-- `UpdateDividerFan` - Fan speed update divider
-- `UpdateDividerMemory` - Used memory update divider
-- `UpdateDividerDriveSpace` - Drive space update divider
 
-## Configuring font
+### Font
 
 [Default configuration](src/@Resources/Config.inc) contains adjustments for [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
 
@@ -200,3 +189,30 @@ If you want to use another font you'll need to change some variables in `Config.
 - `LineMeterStringBottomFix` - Bottom offset for string located in the bottom of meter higher than one text row (e.g. Drive write speed)
 - `FontSize` and `LineHeight` - Main font size and line height
 - `FontSizeSmall` and `LineHeightSmall` - Smaller font size and line height
+- `StringEffect` - Font effect type - `Border`, `Shadow` or `None`
+- `FontEffectColor` - Font effect color
+- `FontColor` - Default font color
+- `FontColorDim` - Dimmed font color (less important information)
+- `FontColorDisabled` - Font color for disabled label (not important information like zero write speed)
+
+### Colors
+
+- `SkinBackground` - Skin background color
+- `MeterBackground` - Meter box background color
+- `MeterColor` - Accent color
+- `SeparatorColor` - Border color
+
+### Symbols
+
+- `WriteSpeedPrefix` and `ReadSpeedPrefix` - Symbols to use as prefixes for write/read speed
+
+### Update dividers
+
+- `UpdateDividerCPUTopProcess` - CPU Top processes update divider ([read more about dividers](https://docs.rainmeter.net/tips/update-guide/))
+- `UpdateDividerMemoryTopProcess` - Memory Top processes update divider
+- `UpdateDividerGPUTopProcess` - GPU Top processes update divider
+- `UpdateDividerIOTopProcess` - I/O Top processes update divider
+- `UpdateDividerTemp` - Temperature update divider
+- `UpdateDividerFan` - Fan speed update divider
+- `UpdateDividerMemory` - Used memory update divider
+- `UpdateDividerDriveSpace` - Drive space update divider

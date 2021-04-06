@@ -1,7 +1,7 @@
 [Variables]
-ActiveTimeFontColor=#FontColor#
-ReadSpeedFontColor=#FontColor#
-WriteSpeedFontColor=#FontColor#
+ActiveTimeFontColor=#FontColorDisabled#
+ReadSpeedFontColor=#FontColorDisabled#
+WriteSpeedFontColor=#FontColorDisabled#
 
 ; ========
 ; Measures
@@ -11,6 +11,11 @@ WriteSpeedFontColor=#FontColor#
 Measure=FreeDiskSpace
 Drive=#Drive#
 UpdateDivider=#UpdateDividerDriveSpace#
+
+[MeasureScriptAutoScaleSize]
+Measure=Script
+ScriptFile=#@#AutoScaleSize.lua
+Disabled=1
 
 [MeasureDriveLabel]
 Measure=FreeDiskSpace
@@ -92,7 +97,9 @@ Meter=String
 MeasureName=MeasureDriveLabel
 MeterStyle=StringStyle | OffsetStyle
 Text="%1 (#Drive#)"
+TooltipText="Total: [&MeasureScriptAutoScaleSize:AutoScale([&MeasureFreeSpace:MaxValue], 2)]"
 UpdateDivider=-1
+DynamicVariables=1
 
 ; -----------
 ; Temperature
