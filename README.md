@@ -19,9 +19,12 @@ A minimalistic monochrome skins for [Rainmeter](https://www.rainmeter.net/)
   - [Colors](#colors)
   - [Symbols](#symbols)
   - [Update dividers](#update-dividers)
+- [Issues](#issues)
+  - [Wrong value for available GPU Dedicated Memory](#wrong-value-for-available-gpu-dedicated-memory)
 
 ## Requirements
 
+- Windows 10
 - [Rainmeter](https://www.rainmeter.net/) 4.3.1 or higher
 - [HWiNFO](https://www.hwinfo.com/). Use version < 7.0.0 unless you have Pro subscription (e.g. [v6.42](https://www.fosshub.com/HWiNFO-old.html), [read why](https://docs.rainmeter.net/tips/hwinfo/)). Installer is preferable because Portable seems to have problems with autostart
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font, unless you want use font of your choice
@@ -37,9 +40,9 @@ Displays computer uptime
 <details>
   <summary>Configuration</summary>
 
-  See `Uptime` section in `Config.inc`
+See `Uptime` section in `Config.inc`
 
-  - `UptimeBorderTop`, `UptimeBorderRight`, `UptimeBorderBottom` and `UptimeBorderLeft` - Toggles skin border visibility
+- `UptimeBorderTop`, `UptimeBorderRight`, `UptimeBorderBottom` and `UptimeBorderLeft` - Toggles skin border visibility
 </details>
 
 ### CPU
@@ -51,12 +54,12 @@ Displays CPU usage/temperature values and values as line meter, processes count 
 <details>
   <summary>Configuration</summary>
 
-  See `CPU` section in `Config.inc`
+See `CPU` section in `Config.inc`
 
-  - `HWiNFO_CPU0_SensorId` and `HWiNFO_CPU0_SensorInstance` - CPU Sensor ID and Instance (**Sensor Details** section in "HWiNFO Shared Memory Viewer") that provides CPU temperature value. See "Setting HWiNFO related values" section in `Config.inc` for more details
-  - `HWiNFO_CPU0_Temp` - CPU temperature Entry ID (**Entry Details** section)
-  - `CPUTopProcessesCount` - Number of top processes using CPU displayed. Setting value to `0` hides "Top processes" block
-  - `CPUBorderTop`, `CPUBorderRight`, `CPUBorderBottom` and `CPUBorderLeft` - Toggles skin border visibility
+- `HWiNFO_CPU0_SensorId` and `HWiNFO_CPU0_SensorInstance` - CPU Sensor ID and Instance (**Sensor Details** section in "HWiNFO Shared Memory Viewer") that provides CPU temperature value. See "Setting HWiNFO related values" section in `Config.inc` for more details
+- `HWiNFO_CPU0_Temp` - CPU temperature Entry ID (**Entry Details** section)
+- `CPUTopProcessesCount` - Number of top processes using CPU displayed. Setting value to `0` hides "Top processes" block
+- `CPUBorderTop`, `CPUBorderRight`, `CPUBorderBottom` and `CPUBorderLeft` - Toggles skin border visibility
 </details>
 
 ### Memory
@@ -68,10 +71,10 @@ Displays RAM usage and 1-5 top processes using RAM. When used memory bar is hove
 <details>
   <summary>Configuration</summary>
 
-  See `Memory` section in `Config.inc`
+See `Memory` section in `Config.inc`
 
-  - `MemoryTopProcessesCount` - Number of top processes using RAM displayed. Setting value to `0` hides "Top processes" block
-  - `MemoryBorderTop`, `MemoryBorderRight`, `MemoryBorderBottom` and `MemoryBorderLeft` - Toggles skin border visibility
+- `MemoryTopProcessesCount` - Number of top processes using RAM displayed. Setting value to `0` hides "Top processes" block
+- `MemoryBorderTop`, `MemoryBorderRight`, `MemoryBorderBottom` and `MemoryBorderLeft` - Toggles skin border visibility
 </details>
 
 ### GPU
@@ -83,14 +86,14 @@ Displays GPU usage/temperature, fan speed, dedicated memory usage and 1-5 top pr
 <details>
   <summary>Configuration</summary>
 
-  See `GPU` section in `Config.inc`
+See `GPU` section in `Config.inc`
 
-  - `HWiNFO_GPU0_SensorId` and `HWiNFO_GPU0_SensorInstance` - GPU  Sensor ID and Instance
-  - `HWiNFO_GPU0_Temp` - GPU Temperature Entry ID
-  - `HWiNFO_GPU0_Fan` - GPU Fan Entry ID
-  - `GPUTopProcessesCount` - Number of top processes using GPU displayed. Setting value to `0` hides "Top processes" block
-  - `GPU_Registry_GUID` - Registry key name where GPU name can be read. Value is displayed as a tooltip when "GPU" label is hovered
-  - `GPUBorderTop`, `GPUBorderRight`, `GPUBorderBottom` and `GPUBorderLeft` - Toggles skin border visibility
+- `HWiNFO_GPU0_SensorId` and `HWiNFO_GPU0_SensorInstance` - GPU Sensor ID and Instance
+- `HWiNFO_GPU0_Temp` - GPU Temperature Entry ID
+- `HWiNFO_GPU0_Fan` - GPU Fan Entry ID
+- `GPUTopProcessesCount` - Number of top processes using GPU displayed. Setting value to `0` hides "Top processes" block
+- `GPU_Registry_GUID` - Registry key name where GPU name can be read. Value is displayed as a tooltip when "GPU" label is hovered
+- `GPUBorderTop`, `GPUBorderRight`, `GPUBorderBottom` and `GPUBorderLeft` - Toggles skin border visibility
 </details>
 
 ### Network
@@ -102,11 +105,11 @@ Shows Download/Upload speed in kB/s and connections count
 <details>
   <summary>Configuration</summary>
 
-  See `Network` section in `Config.inc`
+See `Network` section in `Config.inc`
 
-  - `NetworkMaxDownloadMbits` and `NetworkMaxUploadMbits` - Maximum download/upload speed of your network. Use http://speedtest.net to get these values
-  - `NetworkInterface` - Network interface name. Set if default value doesn't match your network adapter
-  - `NetworkBorderTop`, `NetworkBorderRight`, `NetworkBorderBottom` and `NetworkBorderLeft` - Toggles skin border visibility
+- `NetworkMaxDownloadMbits` and `NetworkMaxUploadMbits` - Maximum download/upload speed of your network. Use http://speedtest.net to get these values
+- `NetworkInterface` - Network interface name. Set if default value doesn't match your network adapter
+- `NetworkBorderTop`, `NetworkBorderRight`, `NetworkBorderBottom` and `NetworkBorderLeft` - Toggles skin border visibility
 </details>
 
 ### I/O
@@ -118,10 +121,10 @@ Displays I/O information (file, network and device I/Os).
 <details>
   <summary>Configuration</summary>
 
-  See `I/O` section in `Config.inc`
+See `I/O` section in `Config.inc`
 
-  - `IOTopProcessesCount` - Number of top processes using I/O displayed. Setting value to `0` hides "Top processes Read+Write" block
-  - `IOBorderTop`, `IOBorderRight`, `IOBorderBottom` and `IOBorderLeft` - Toggles skin border visibility
+- `IOTopProcessesCount` - Number of top processes using I/O displayed. Setting value to `0` hides "Top processes Read+Write" block
+- `IOBorderTop`, `IOBorderRight`, `IOBorderBottom` and `IOBorderLeft` - Toggles skin border visibility
 </details>
 
 ### Drive
@@ -133,16 +136,16 @@ Displays drive's free space, temperature, activity, read/write speed. When disk 
 <details>
   <summary>Configuration</summary>
 
-  See `Drives` section in `Config.inc`
+See `Drives` section in `Config.inc`
 
-  You might want to load `Drive_Header` skin to add header for drives skins
+You might want to load `Drive_Header` skin to add header for drives skins
 
-  - `HWiNFO_SMART_SensorId` - S.M.A.R.T. Sensor ID (the same for all drives)
-  - `HWiNFO_SMART_DriveTemperature` - S.M.A.R.T. Drive Temperature Entry ID (the same for all drives)
-  - `Drive_1`...`Drive_5` - Drive's letter (e.g. `C:`)
-  - `Drive_1_HWiNFOSensorInstance`...`Drive_5_HWiNFOSensorInstance` - S.M.A.R.T. Sensor Instance
-  -  `DrivesHeaderBorderTop`, `DrivesHeaderBorderRight`, `DrivesHeaderBorderBottom` and `DrivesHeaderBorderLeft` - Toggles Drives Header skin border visibility
-  - `Drive_1_BorderTop`...`Drive_5_BorderTop`, `Drive_1_BorderRight`...`Drive_5_BorderRight`, `Drive_1_BorderBottom`...`Drive_5_BorderBottom` and `Drive_1_BorderLeft`...`Drive_5_BorderLeft` - Toggles skin border visibility
+- `HWiNFO_SMART_SensorId` - S.M.A.R.T. Sensor ID (the same for all drives)
+- `HWiNFO_SMART_DriveTemperature` - S.M.A.R.T. Drive Temperature Entry ID (the same for all drives)
+- `Drive_1`...`Drive_5` - Drive's letter (e.g. `C:`)
+- `Drive_1_HWiNFOSensorInstance`...`Drive_5_HWiNFOSensorInstance` - S.M.A.R.T. Sensor Instance
+- `DrivesHeaderBorderTop`, `DrivesHeaderBorderRight`, `DrivesHeaderBorderBottom` and `DrivesHeaderBorderLeft` - Toggles Drives Header skin border visibility
+- `Drive_1_BorderTop`...`Drive_5_BorderTop`, `Drive_1_BorderRight`...`Drive_5_BorderRight`, `Drive_1_BorderBottom`...`Drive_5_BorderBottom` and `Drive_1_BorderLeft`...`Drive_5_BorderLeft` - Toggles skin border visibility
 </details>
 
 ### Player
@@ -154,12 +157,12 @@ Displays currently playing track information - track title, track artist and tra
 <details>
   <summary>Configuration</summary>
 
-  See `Player` section in `Config.inc`
+See `Player` section in `Config.inc`
 
-  - `PlayerName` - Player application name (see [supported players list](https://docs.rainmeter.net/manual/measures/nowplaying/#playerlist))
-  - `PlayerTitle` - Skin header text (e.g. "My Jukebox")
-  - `PlayerPath` - Player executable absolute path
-  - `PlayerBorderTop`, `PlayerBorderRight`, `PlayerBorderBottom` and `PlayerBorderLeft` - Toggles skin border visibility
+- `PlayerName` - Player application name (see [supported players list](https://docs.rainmeter.net/manual/measures/nowplaying/#playerlist))
+- `PlayerTitle` - Skin header text (e.g. "My Jukebox")
+- `PlayerPath` - Player executable absolute path
+- `PlayerBorderTop`, `PlayerBorderRight`, `PlayerBorderBottom` and `PlayerBorderLeft` - Toggles skin border visibility
 </details>
 
 ## Other meter specific configuration variables
@@ -216,3 +219,13 @@ If you want to use another font you'll need to change some variables in `Config.
 - `UpdateDividerFan` - Fan speed update divider
 - `UpdateDividerMemory` - Used memory update divider
 - `UpdateDividerDriveSpace` - Drive space update divider
+
+## Issues
+
+### Wrong value for available GPU Dedicated Memory
+
+Total available dedicated memory value is taken from [WinSAT](https://en.wikipedia.org/wiki/Windows_System_Assessment_Tool) registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinSAT`. If there is no such key in your registry you need to run WinSAT formal check. For that open Command Prompt as administrator and type:
+```
+winsat formal
+```
+Wait till the check is done and refresh all skins.
