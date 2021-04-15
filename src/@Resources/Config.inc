@@ -15,6 +15,8 @@
 ; https://www.hwinfo.com/forum/threads/cpu_core_temperature_measuring_facts_fictions.148/
 ; https://forum.rainmeter.net/viewtopic.php?f=128&t=22169
 
+; "en", "ru"
+Locale="en"
 
 ; -----
 ; Sizes

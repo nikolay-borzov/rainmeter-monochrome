@@ -4,8 +4,11 @@ AccurateText=1
 SolidColor=#SkinBackground#
 BackgroundMode=2
 SkinWidth=#SkinWidth#
+ContextTitle=#LabelOpenConfig#
+ContextAction=["#@#Config.inc"]
 
 [Variables]
-@include1=#@#Variables.inc
-@include2=#@#Styles.inc
-@include3=#@#Config.inc
+@Include=#@#Variables.inc
+@Include2=#@#Styles.inc
+@Include3=#@#Config.inc
+@Include4=#@#locales/#Locale#.inc

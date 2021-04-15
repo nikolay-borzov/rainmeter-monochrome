@@ -1,7 +1,7 @@
 {
   "Name": "Monochrome",
   "Author": "nikolay-borzov",
-  "Version": "1.2.0",
+  "Version": "1.3.0",
   "Plugins": [
     "HWiNFO.dll"
   ],

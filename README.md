@@ -19,6 +19,7 @@ A minimalistic monochrome skins for [Rainmeter](https://www.rainmeter.net/)
   - [Colors](#colors)
   - [Symbols](#symbols)
   - [Update dividers](#update-dividers)
+- [Localization](#localization)
 - [Issues](#issues)
   - [Wrong value for available GPU Dedicated Memory](#wrong-value-for-available-gpu-dedicated-memory)
 
@@ -30,6 +31,8 @@ A minimalistic monochrome skins for [Rainmeter](https://www.rainmeter.net/)
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font, unless you want use font of your choice
 
 ## Skins
+
+Note that you can open `Config.inc` by clicking on "Open Config" item in the skin context menu
 
 ### Uptime
 
@@ -220,12 +223,18 @@ If you want to use another font you'll need to change some variables in `Config.
 - `UpdateDividerMemory` - Used memory update divider
 - `UpdateDividerDriveSpace` - Drive space update divider
 
+## Localization
+
+You can chose language to be used for labels by setting `Locale` variable in the config. Supported locales are "en" and "ru". Feel free to add other locales via PR
+
 ## Issues
 
 ### Wrong value for available GPU Dedicated Memory
 
 Total available dedicated memory value is taken from [WinSAT](https://en.wikipedia.org/wiki/Windows_System_Assessment_Tool) registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinSAT`. If there is no such key in your registry you need to run WinSAT formal check. For that open Command Prompt as administrator and type:
+
 ```
 winsat formal
 ```
+
 Wait till the check is done and refresh all skins.

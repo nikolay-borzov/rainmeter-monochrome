@@ -97,7 +97,7 @@ Meter=String
 MeasureName=MeasureDriveLabel
 MeterStyle=StringStyle | OffsetStyle
 Text="%1 (#Drive#)"
-TooltipText="Total: [&MeasureScriptAutoScaleSize:AutoScale([&MeasureFreeSpace:MaxValue], 2)]"
+TooltipText="#LabelTotal#: [&MeasureScriptAutoScaleSize:AutoScale([&MeasureFreeSpace:MaxValue], 2)]"
 UpdateDivider=-1
 DynamicVariables=1
 
@@ -142,13 +142,13 @@ UpdateDivider=#UpdateDividerDriveSpace#
 [MeterActiveTimeLabel]
 Meter=String
 MeterStyle=StringStyle | OffsetStyle | ContentHalfLeftLabel
-Text="Active time"
+Text=#LabelActiveTime#
 UpdateDivider=-1
 
 [MeterReadWriteLabel]
 Meter=String
 MeterStyle=StringStyle | ContentHalfRightLabel
-Text="Read/Write"
+Text=#LabelReadWrite#
 UpdateDivider=-1
 
 ; -------------
