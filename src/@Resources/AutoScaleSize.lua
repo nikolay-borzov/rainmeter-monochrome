@@ -3,7 +3,7 @@
 function AutoScale(num, idp)
   assert(tonumber(num), 'AutoScale expects a number.')
 
-  local scales = {'B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'}
+  local scales = {'B', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'}
   local places = idp or 0
   local scale = ''
   local scaled = 0

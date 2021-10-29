@@ -135,7 +135,8 @@ StringAlign=RightCenter
 [MeterBytesStringStyle]
 NumOfDecimals=2
 AutoScale=1k
-Text="%1B"
+; Use binary prefixes for size (e.g. GiB)
+Text="%1iB"
 
 [MeterBytesSpeedStringStyle]
 NumOfDecimals=1

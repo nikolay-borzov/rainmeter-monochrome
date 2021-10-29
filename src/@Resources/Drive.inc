@@ -120,7 +120,7 @@ Meter=Bar
 MeasureName=MeasureFreeSpace
 MeterStyle=StringStyle | OffsetSmallStyle | BarFlipStyle
 MouseOverAction=[!SetOption MeterFreeSpaceString Percentual 1][!SetOption MeterFreeSpaceString Text "%1%"][!UpdateMeter MeterFreeSpaceString][!Redraw]
-MouseLeaveAction=[!SetOption MeterFreeSpaceString Percentual 0][!SetOption MeterFreeSpaceString Text "%1B"][!UpdateMeter MeterFreeSpaceString][!Redraw]
+MouseLeaveAction=[!SetOption MeterFreeSpaceString Percentual 0][!SetOption MeterFreeSpaceString Text "%1iB"][!UpdateMeter MeterFreeSpaceString][!Redraw]
 UpdateDivider=#UpdateDividerDriveSpace#
 
 [MeterFreeSpaceBarContainer]
