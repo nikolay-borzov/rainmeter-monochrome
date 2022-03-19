@@ -132,7 +132,7 @@ See `I/O` section in `Config.inc`
 
 ### Drive
 
-Displays drive's free space, temperature, activity, read/write speed. When disk label is hovered a total size is displayed.
+Displays drive's free space, temperature, activity, read/write speed. When disk label is hovered drive identifier and total size are displayed.
 
 ![Drive skin image](images/drive.png)
 
@@ -144,11 +144,11 @@ See `Drives` section in `Config.inc`
 You might want to load `Drive_Header` skin to add header for drives skins
 
 - `HWiNFO_SMART_SensorId` - S.M.A.R.T. Sensor ID (the same for all drives)
-- `HWiNFO_SMART_DriveTemperature` - S.M.A.R.T. Drive Temperature Entry ID (the same for all drives)
-- `Drive_1`...`Drive_5` - Drive's letter (e.g. `C:`)
-- `Drive_1_HWiNFOSensorInstance`...`Drive_5_HWiNFOSensorInstance` - S.M.A.R.T. Sensor Instance
+- `Drive_1`...`Drive_6` - Drive's letter (e.g. `C:`)
+- `Drive_1_HWiNFOSensorInstance`...`Drive_6_HWiNFOSensorInstance` - S.M.A.R.T. Sensor Instance
+- `Drive_1_HWiNFOTemperatureEntryId`..`Drive_6_HWiNFOTemperatureEntryId` - S.M.A.R.T. Drive Temperature Entry ID
 - `DrivesHeaderBorderTop`, `DrivesHeaderBorderRight`, `DrivesHeaderBorderBottom` and `DrivesHeaderBorderLeft` - Toggles Drives Header skin border visibility
-- `Drive_1_BorderTop`...`Drive_5_BorderTop`, `Drive_1_BorderRight`...`Drive_5_BorderRight`, `Drive_1_BorderBottom`...`Drive_5_BorderBottom` and `Drive_1_BorderLeft`...`Drive_5_BorderLeft` - Toggles skin border visibility
+- `Drive_1_BorderTop`...`Drive_6_BorderTop`, `Drive_1_BorderRight`...`Drive_6_BorderRight`, `Drive_1_BorderBottom`...`Drive_6_BorderBottom` and `Drive_1_BorderLeft`...`Drive_6_BorderLeft` - Toggles skin border visibility
 </details>
 
 ### Player

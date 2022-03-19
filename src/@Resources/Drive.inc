@@ -23,6 +23,16 @@ Drive=#Drive#
 Label=1
 UpdateDivider=-1
 
+[MeasureDriveIdentifier]
+Measure=Plugin
+Plugin=HWiNFO.dll
+HWiNFOSensorId=#HWiNFO_SMART_SensorId#
+HWiNFOSensorInstance=#Drive_HWiNFOSensorInstance#
+HWiNFOType=SensorName
+RegExpSubstitute=1
+Substitute="S.M.A.R.T.: ":"", " (\([^(]+\))$":""
+UpdateDivider=-1
+
 [MeasureIdleTime]
 Measure=Plugin
 Plugin=UsageMonitor
@@ -50,7 +60,7 @@ Measure=Plugin
 PlugIn=HWiNFO.dll
 HWiNFOSensorId=#HWiNFO_SMART_SensorId#
 HWiNFOSensorInstance=#Drive_HWiNFOSensorInstance#
-HWiNFOEntryId=#HWiNFO_SMART_DriveTemperature#
+HWiNFOEntryId=#Drive_HWiNFOTemperatureEntryId#
 HWiNFOType=CurrentValue
 MinValue=0
 MaxValue=#TempMax#
@@ -97,7 +107,7 @@ Meter=String
 MeasureName=MeasureDriveLabel
 MeterStyle=StringStyle | OffsetStyle
 Text="%1 (#Drive#)"
-TooltipText="#LabelTotal#: [&MeasureScriptAutoScaleSize:AutoScale([&MeasureFreeSpace:MaxValue], 2)]"
+TooltipText="[MeasureDriveIdentifier]#CRLF##LabelTotal#: [&MeasureScriptAutoScaleSize:AutoScale([&MeasureFreeSpace:MaxValue], 2)]"
 UpdateDivider=-1
 DynamicVariables=1
 

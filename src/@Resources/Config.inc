@@ -189,12 +189,12 @@ DrivesHeaderBorderLeft=1
 ; Drives
 ; ------
 
-; S.M.A.R.T. Same for all drives
+; Common variables
 HWiNFO_SMART_SensorId=0xf0000100
-HWiNFO_SMART_DriveTemperature=0x1000000
 
 Drive_1=C:
-Drive_1_HWiNFOSensorInstance=0x3
+Drive_1_HWiNFOSensorInstance=0x0
+Drive_1_HWiNFOTemperatureEntryId=0x1000000
 ; 0 - hide, 1 - show
 Drive_1_BorderTop=0
 Drive_1_BorderRight=1
@@ -202,36 +202,49 @@ Drive_1_BorderBottom=1
 Drive_1_BorderLeft=1
 
 Drive_2=D:
-Drive_2_HWiNFOSensorInstance=0x0
+Drive_2_HWiNFOSensorInstance=0x1
+Drive_2_HWiNFOTemperatureEntryId=0x1000000
 ; 0 - hide, 1 - show
 Drive_2_BorderTop=0
 Drive_2_BorderRight=1
 Drive_2_BorderBottom=1
 Drive_2_BorderLeft=1
 
-Drive_3=G:
+Drive_3=E:
 Drive_3_HWiNFOSensorInstance=0x2
+Drive_3_HWiNFOTemperatureEntryId=0x1000000
 ; 0 - hide, 1 - show
 Drive_3_BorderTop=0
 Drive_3_BorderRight=1
 Drive_3_BorderBottom=1
 Drive_3_BorderLeft=1
 
-Drive_4=H:
-Drive_4_HWiNFOSensorInstance=0x1
+Drive_4=F:
+Drive_4_HWiNFOSensorInstance=0x3
+Drive_4_HWiNFOTemperatureEntryId=0x1000000
 ; 0 - hide, 1 - show
 Drive_4_BorderTop=0
 Drive_4_BorderRight=1
 Drive_4_BorderBottom=1
 Drive_4_BorderLeft=1
 
-Drive_5=O:
+Drive_5=G:
 Drive_5_HWiNFOSensorInstance=0x4
+Drive_5_HWiNFOTemperatureEntryId=0x1000000
 ; 0 - hide, 1 - show
 Drive_5_BorderTop=0
 Drive_5_BorderRight=1
 Drive_5_BorderBottom=1
 Drive_5_BorderLeft=1
+
+Drive_6=H:
+Drive_6_HWiNFOSensorInstance=0x5
+Drive_6_HWiNFOTemperatureEntryId=0x1000000
+; 0 - hide, 1 - show
+Drive_6_BorderTop=0
+Drive_6_BorderRight=1
+Drive_6_BorderBottom=1
+Drive_6_BorderLeft=1
 
 ; ------
 ; Player
