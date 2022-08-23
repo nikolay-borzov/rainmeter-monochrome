@@ -145,7 +145,7 @@ Text="%1B/s"
 
 [MeterTemperatureStringStyle]
 ; [\x00B0] - Degree Sign °
-Text="%1[\x00B0]#TempUnit#"
+Text="%1[\x00B0]#TemperatureUnit#"
 
 [MeterPercentStringStyle]
 Text="%1%"

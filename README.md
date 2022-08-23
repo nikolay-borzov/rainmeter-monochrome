@@ -20,23 +20,21 @@ A minimalistic monochrome skins for [Rainmeter](https://www.rainmeter.net/)
   - [Symbols](#symbols)
   - [Update dividers](#update-dividers)
 - [Localization](#localization)
-- [Issues](#issues)
-  - [Wrong value for available GPU Dedicated Memory](#wrong-value-for-available-gpu-dedicated-memory)
 
 ## Requirements
 
 - Windows 10
 - [Rainmeter](https://www.rainmeter.net/) 4.3.1 or higher
-- [HWiNFO](https://www.hwinfo.com/). Use version < 7.0.0 unless you have Pro subscription (e.g. [v6.42](https://www.fosshub.com/HWiNFO-old.html), [read why](https://docs.rainmeter.net/tips/hwinfo/)). Installer is preferable because Portable seems to have problems with autostart
+- [HWiNFO](https://www.hwinfo.com/). Use version < 7.0.0 unless you have Pro subscription or don't mind checking a checkbox in HWiNFO settings once in 12 hours (e.g. [v6.42](https://www.fosshub.com/HWiNFO-old.html), [read why](https://docs.rainmeter.net/tips/hwinfo/)). Installer is preferable since Portable seems to have problems with autostart
 - [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font, unless you want use font of your choice
 
 ## Skins
 
-Note that you can open `Config.inc` by clicking on "Open Config" item in the skin context menu
+You can open all skins config (`Config.inc`) by clicking on "Open Config" item in the a skin context menu
 
 ### Uptime
 
-Displays computer uptime
+Displays system uptime
 
 ![Uptime skin image](images/uptime.png)
 
@@ -59,8 +57,8 @@ Displays CPU usage/temperature values and values as line meter, processes count 
 
 See `CPU` section in `Config.inc`
 
-- `HWiNFO_CPU0_SensorId` and `HWiNFO_CPU0_SensorInstance` - CPU Sensor ID and Instance (**Sensor Details** section in "HWiNFO Shared Memory Viewer") that provides CPU temperature value. See "Setting HWiNFO related values" section in `Config.inc` for more details
-- `HWiNFO_CPU0_Temp` - CPU temperature Entry ID (**Entry Details** section)
+- `CPUHWiNFOSensorId` and `CPUHWiNFOSensorInstance` - CPU Sensor ID and Instance (**Sensor Details** section in "HWiNFO Shared Memory Viewer") that provides CPU temperature value. See "Setting HWiNFO related values" section in `Config.inc` for more details
+- `CPUHWiNFOTemperatureEntryId` - CPU temperature Entry ID (**Entry Details** section)
 - `CPUTopProcessesCount` - Number of top processes using CPU displayed. Setting value to `0` hides "Top processes" block
 - `CPUBorderTop`, `CPUBorderRight`, `CPUBorderBottom` and `CPUBorderLeft` - Toggles skin border visibility
 </details>
@@ -82,7 +80,7 @@ See `Memory` section in `Config.inc`
 
 ### GPU
 
-Displays GPU usage/temperature, fan speed, dedicated memory usage and 1-5 top processes using GPU. When used dedicated bar is hovered a percent of used memory is displayed. When "GPU" label is hovered the GPU name is displayed as a tooltip
+Displays GPU usage (GPU Core Load), temperature, fan speed, memory usage and 1-5 top processes using GPU. When memory bar is hovered a percent of used memory is displayed. When "GPU" label is hovered the GPU adapter name is displayed as a tooltip
 
 ![GPU skin image](images/gpu.png)
 
@@ -91,11 +89,14 @@ Displays GPU usage/temperature, fan speed, dedicated memory usage and 1-5 top pr
 
 See `GPU` section in `Config.inc`
 
-- `HWiNFO_GPU0_SensorId` and `HWiNFO_GPU0_SensorInstance` - GPU Sensor ID and Instance
-- `HWiNFO_GPU0_Temp` - GPU Temperature Entry ID
-- `HWiNFO_GPU0_Fan` - GPU Fan Entry ID
+- `GPUHWiNFOSensorId` and `GPUHWiNFOSensorInstance` - GPU Sensor ID and Instance
+- `GPUHWiNFOTemperatureEntryId` - GPU Temperature Entry ID
+- `GPUHWiNFOFanEntryId` - GPU Fan Entry ID. Set to `-1` to disable (in case when GPU does not have a fan)
+- `GPUHWiNFOCoreLoadEntryId` - GPU Core Load (usage) Entry ID
+- `GPUHWiNFOMemoryAllocatedEntryId` - GPU Memory Allocated (memory used) Entry ID
+- `GPUIndex` - Key under `HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\` corresponding the GPU. Usually it's `0000`, but depending on how many GPUs are in the system it can be `0001`, `0002`, etc. Check registry to get correct one - it must contain `HardwareInformation.qwMemorySize` record. Or check whether tooltip on "GPU" label on the skin displays correct name
+- `GPUTotalMemory` (Default: -1) - GPU total memory in bytes. Set when `HardwareInformation.qwMemorySize` is missing in the registry. Set to -1 to use value from registry
 - `GPUTopProcessesCount` - Number of top processes using GPU displayed. Setting value to `0` hides "Top processes" block
-- `GPU_Registry_GUID` - Registry key name where GPU name can be read. Value is displayed as a tooltip when "GPU" label is hovered
 - `GPUBorderTop`, `GPUBorderRight`, `GPUBorderBottom` and `GPUBorderLeft` - Toggles skin border visibility
 </details>
 
@@ -143,12 +144,15 @@ See `Drives` section in `Config.inc`
 
 You might want to load `Drive_Header` skin to add header for drives skins
 
-- `HWiNFO_SMART_SensorId` - S.M.A.R.T. Sensor ID (the same for all drives)
-- `Drive_1`...`Drive_6` - Drive's letter (e.g. `C:`)
-- `Drive_1_HWiNFOSensorInstance`...`Drive_6_HWiNFOSensorInstance` - S.M.A.R.T. Sensor Instance
-- `Drive_1_HWiNFOTemperatureEntryId`..`Drive_6_HWiNFOTemperatureEntryId` - S.M.A.R.T. Drive Temperature Entry ID
+- `DriveHWiNFOSMARTSensorId` - S.M.A.R.T. Sensor ID (the same for all drives)
+- `DriveHWiNFODriveSensorId` - Drive Sensor ID (the same for all drives)
+- `Drive1`...`Drive6` - Drive's letter (e.g. `C:`)
+- `Drive1HWiNFOSensorInstance`...`Drive6HWiNFOSensorInstance` - S.M.A.R.T. Sensor Instance
+- `Drive1HWiNFOTemperatureEntryId`..`Drive6HWiNFOTemperatureEntryId` - S.M.A.R.T. Drive Temperature Entry ID
+- `Drive1HWiNFOTotalActivityEntryId`..`Drive6HWiNFOTotalActivityEntryId` - Drive Total Activity Entry ID
+- `Drive1HWiNFORemainingLifeEntryId`..`Drive6HWiNFORemainingLifeEntryId` - S.M.A.R.T. Drive Remaining Life Entry ID. Only available for SSD. Set to `-1` for HDD
 - `DrivesHeaderBorderTop`, `DrivesHeaderBorderRight`, `DrivesHeaderBorderBottom` and `DrivesHeaderBorderLeft` - Toggles Drives Header skin border visibility
-- `Drive_1_BorderTop`...`Drive_6_BorderTop`, `Drive_1_BorderRight`...`Drive_6_BorderRight`, `Drive_1_BorderBottom`...`Drive_6_BorderBottom` and `Drive_1_BorderLeft`...`Drive_6_BorderLeft` - Toggles skin border visibility
+- `Drive1BorderTop`...`Drive6BorderTop`, `Drive1BorderRight`...`Drive6BorderRight`, `Drive1BorderBottom`...`Drive6BorderBottom` and `Drive1BorderLeft`...`Drive6BorderLeft` - Toggles skin border visibility
 </details>
 
 ### Player
@@ -172,8 +176,8 @@ See `Player` section in `Config.inc`
 
 See `Temperature` section in `Config.inc`
 
-- `TempUnit` - Temperature unit to use. `C` for Celsius, `F` for Fahrenheit, `K` for Kelvin
-- `TempMax`- Maximum temperature. It's needed for line meter
+- `TemperatureUnit` - Temperature unit to use. `C` for Celsius, `F` for Fahrenheit, `K` for Kelvin
+- `TemperatureMax`- Maximum temperature. It's needed for line meter
 
 ## Common configuration
 
@@ -187,7 +191,7 @@ See `Temperature` section in `Config.inc`
 
 [Default configuration](src/@Resources/Config.inc) contains adjustments for [JetBrains Mono](https://www.jetbrains.com/lp/mono/) font.
 
-If you want to use another font you'll need to change some variables in `Config.inc`:
+If you want to use another font you'll need to change font-related variables in `Config.inc`:
 
 - `FontFace` - Font to use
 - `FontTopPaddingFix` - Top offset for bar and short line meters (e.g. Drive free space)
@@ -226,15 +230,3 @@ If you want to use another font you'll need to change some variables in `Config.
 ## Localization
 
 You can chose language to be used for labels by setting `Locale` variable in the config. Supported locales are "en" and "ru". Feel free to add other locales via PR
-
-## Issues
-
-### Wrong value for available GPU Dedicated Memory
-
-Total available dedicated memory value is taken from [WinSAT](https://en.wikipedia.org/wiki/Windows_System_Assessment_Tool) registry key `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\WinSAT`. If there is no such key in your registry you need to run WinSAT formal check. For that open Command Prompt as administrator and type:
-
-```
-winsat formal
-```
-
-Wait till the check is done and refresh all skins.

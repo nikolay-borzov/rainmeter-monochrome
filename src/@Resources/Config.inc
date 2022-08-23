@@ -11,6 +11,7 @@
 ; 5. Refresh the skin
 
 ; HWiNFO references
+; https://www.hwinfo.com/forum/threads/rainmeter-plug-in-for-hwinfo-3-2.2172/
 ; https://www.hwinfo.com/forum/threads/cpu_temp_sensors_explanation.5597/
 ; https://www.hwinfo.com/forum/threads/cpu_core_temperature_measuring_facts_fictions.148/
 ; https://forum.rainmeter.net/viewtopic.php?f=128&t=22169
@@ -92,8 +93,8 @@ UpdateDividerIOTopProcess=1
 ; -----------
 
 ; C, F, K
-TempUnit=C
-TempMax=100
+TemperatureUnit=C
+TemperatureMax=100
 
 ; ------
 ; Uptime
@@ -109,9 +110,9 @@ UptimeBorderLeft=1
 ; CPU
 ; ---
 
-HWiNFO_CPU0_SensorId=0xf0000400
-HWiNFO_CPU0_SensorInstance=0x0
-HWiNFO_CPU0_Temp=0x10000ff
+CPUHWiNFOSensorId=0xf0000400
+CPUHWiNFOSensorInstance=0x0
+CPUHWiNFOTemperatureEntryId=0x10000ff
 ; 0-5
 CPUTopProcessesCount=3
 ; 0 - hide, 1 - show
@@ -136,10 +137,19 @@ MemoryBorderLeft=1
 ; GPU
 ; ---
 
-HWiNFO_GPU0_SensorId=0xe0002000
-HWiNFO_GPU0_SensorInstance=0x0
-HWiNFO_GPU0_Temp=0x1000000
-HWiNFO_GPU0_Fan=0x8000000
+GPUHWiNFOSensorId=0xe0002000
+GPUHWiNFOSensorInstance=0x0
+GPUHWiNFOTemperatureEntryId=0x1000000
+; Set to -1 to disable
+GPUHWiNFOFanEntryId=0x8000000
+GPUHWiNFOCoreLoadEntryId=0x7000000
+GPUHWiNFOMemoryAllocatedEntryId=0x80000fc
+; "HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\" key index (it goes 0000, 0001, 00002)
+GPUIndex=0000
+; GPU total memory in bytes.
+; Set when `HardwareInformation.qwMemorySize` is missing in the registry (HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}\#GPUIndex#).
+; Set to -1 to use value from registry
+GPUTotalMemory=-1
 ; 0-5
 GPUTopProcessesCount=2
 ; 0 - hide, 1 - show
@@ -189,62 +199,82 @@ DrivesHeaderBorderLeft=1
 ; Drives
 ; ------
 
-; Common variables
-HWiNFO_SMART_SensorId=0xf0000100
+; Common for all drives
+DriveHWiNFOSMARTSensorId=0xf0000100
+DriveHWiNFODriveSensorId=0xf0000101
 
-Drive_1=C:
-Drive_1_HWiNFOSensorInstance=0x0
-Drive_1_HWiNFOTemperatureEntryId=0x1000000
+Drive1=C:
+; Common for S.M.A.R.T. and Drive sensors
+Drive1HWiNFOSensorInstance=0x0
+Drive1HWiNFOTemperatureEntryId=0x1000000
+Drive1HWiNFOTotalActivityEntryId=0x7000002
+; Only for SSD. Set to -1 to disable
+Drive1HWiNFORemainingLifeEntryId=0x7000000
 ; 0 - hide, 1 - show
-Drive_1_BorderTop=0
-Drive_1_BorderRight=1
-Drive_1_BorderBottom=1
-Drive_1_BorderLeft=1
+Drive1BorderTop=0
+Drive1BorderRight=1
+Drive1BorderBottom=1
+Drive1BorderLeft=1
 
-Drive_2=D:
-Drive_2_HWiNFOSensorInstance=0x1
-Drive_2_HWiNFOTemperatureEntryId=0x1000000
+Drive2=D:
+Drive2HWiNFOSensorInstance=0x1
+Drive2HWiNFOTemperatureEntryId=0x1000000
+Drive2HWiNFOTotalActivityEntryId=0x7000002
+; Only for SSD. Set to -1 to disable
+Drive2HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show
-Drive_2_BorderTop=0
-Drive_2_BorderRight=1
-Drive_2_BorderBottom=1
-Drive_2_BorderLeft=1
+Drive2BorderTop=0
+Drive2BorderRight=1
+Drive2BorderBottom=1
+Drive2BorderLeft=1
 
-Drive_3=E:
-Drive_3_HWiNFOSensorInstance=0x2
-Drive_3_HWiNFOTemperatureEntryId=0x1000000
+Drive3=E:
+Drive3HWiNFOSensorInstance=0x2
+Drive3HWiNFOTemperatureEntryId=0x1000000
+Drive3HWiNFOTotalActivityEntryId=0x7000002
+; Only for SSD. Set to -1 to disable
+Drive3HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show
-Drive_3_BorderTop=0
-Drive_3_BorderRight=1
-Drive_3_BorderBottom=1
-Drive_3_BorderLeft=1
+Drive3BorderTop=0
+Drive3BorderRight=1
+Drive3BorderBottom=1
+Drive3BorderLeft=1
 
-Drive_4=F:
-Drive_4_HWiNFOSensorInstance=0x3
-Drive_4_HWiNFOTemperatureEntryId=0x1000000
+Drive4=F:
+Drive4HWiNFOSensorInstance=0x3
+Drive4HWiNFOTemperatureEntryId=0x1000000
+Drive4HWiNFOTotalActivityEntryId=0x7000002
+; Only for SSD. Set to -1 to disable
+Drive4HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show
-Drive_4_BorderTop=0
-Drive_4_BorderRight=1
-Drive_4_BorderBottom=1
-Drive_4_BorderLeft=1
+Drive4BorderTop=0
+Drive4BorderRight=1
+Drive4BorderBottom=1
+Drive4BorderLeft=1
 
-Drive_5=G:
-Drive_5_HWiNFOSensorInstance=0x4
-Drive_5_HWiNFOTemperatureEntryId=0x1000000
+Drive5=G:
+Drive5HWiNFOSensorInstance=0x4
+Drive5HWiNFOTemperatureEntryId=0x1000000
+Drive5HWiNFOTotalActivityEntryId=0x7000002
+; Only for SSD. Set to -1 to disable
+Drive5HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show
-Drive_5_BorderTop=0
-Drive_5_BorderRight=1
-Drive_5_BorderBottom=1
-Drive_5_BorderLeft=1
+Drive5BorderTop=0
+Drive5BorderRight=1
+Drive5BorderBottom=1
+Drive5BorderLeft=1
 
-Drive_6=H:
-Drive_6_HWiNFOSensorInstance=0x5
-Drive_6_HWiNFOTemperatureEntryId=0x1000000
+Drive6=H:
+Drive6HWiNFOSensorInstance=0x5
+Drive6HWiNFOTemperatureEntryId=0x1000000
+Drive6HWiNFOTotalActivityEntryId=0x7000002
+; Only for SSD. Set to -1 to disable
+Drive6HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show
-Drive_6_BorderTop=0
-Drive_6_BorderRight=1
-Drive_6_BorderBottom=1
-Drive_6_BorderLeft=1
+Drive6BorderTop=0
+Drive6BorderRight=1
+Drive6BorderBottom=1
+Drive6BorderLeft=1
 
 ; ------
 ; Player

@@ -1,7 +1,18 @@
 [Variables]
-ActiveTimeFontColor=#FontColorDisabled#
+ActivityFontColor=#FontColorDisabled#
 ReadSpeedFontColor=#FontColorDisabled#
 WriteSpeedFontColor=#FontColorDisabled#
+RemainingLifeString=""
+
+; --------------
+; Display flags
+; --------------
+
+[RemainingLifeDisplay]
+Measure=Calc
+IfCondition=#DriveHWiNFORemainingLifeEntryId# <> -1
+IfTrueAction=[!EnableMeasure MeasureRemainingLife]
+UpdateDivider=-1
 
 ; ========
 ; Measures
@@ -26,44 +37,47 @@ UpdateDivider=-1
 [MeasureDriveIdentifier]
 Measure=Plugin
 Plugin=HWiNFO.dll
-HWiNFOSensorId=#HWiNFO_SMART_SensorId#
-HWiNFOSensorInstance=#Drive_HWiNFOSensorInstance#
+HWiNFOSensorId=#DriveHWiNFOSMARTSensorId#
+HWiNFOSensorInstance=#DriveHWiNFOSensorInstance#
 HWiNFOType=SensorName
 RegExpSubstitute=1
 Substitute="S.M.A.R.T.: ":"", " (\([^(]+\))$":""
 UpdateDivider=-1
 
-[MeasureIdleTime]
+[MeasureRemainingLife]
 Measure=Plugin
-Plugin=UsageMonitor
-; For PhysicalDisk you have to specify index because "Name" would be like "3 C:"
-Category=LogicalDisk
-Counter=% Idle Time
-Name=#Drive#
-; Should fix the issue with counter retuning values > 100 (e.g. `100.042`)
-Percent=1
-MinValue=0
-MaxValue=100
+Plugin=HWiNFO.dll
+HWiNFOSensorId=#DriveHWiNFOSMARTSensorId#
+HWiNFOSensorInstance=#DriveHWiNFOSensorInstance#
+HWiNFOEntryId=#DriveHWiNFORemainingLifeEntryId#
+HWiNFOType=CurrentValue
+UpdateDivider=-1
+Disabled=1
+IfAboveValue=0
+IfAboveAction=[!SetVariable "RemainingLifeString" "#CRLF##LabelDriveRemainingLife#: [MeasureRemainingLife]%"]
 
-; Alternatively HWiNFO drive `Total Activity` can be used
-[MeasureActiveTime]
-Measure=Calc
-Formula=(100 - MeasureIdleTime)
-MinValue=0
-MaxValue=100
-IfCondition=MeasureActiveTime > 0
-IfTrueAction=[!SetVariable "ActiveTimeFontColor" #FontColor#][!Redraw]
-IfFalseAction=[!SetVariable "ActiveTimeFontColor" #FontColorDisabled#][!Redraw]
-
-[MeasureTemp]
+[MeasureActivity]
 Measure=Plugin
-PlugIn=HWiNFO.dll
-HWiNFOSensorId=#HWiNFO_SMART_SensorId#
-HWiNFOSensorInstance=#Drive_HWiNFOSensorInstance#
-HWiNFOEntryId=#Drive_HWiNFOTemperatureEntryId#
+Plugin=HWiNFO.dll
+HWiNFOSensorId=#DriveHWiNFODriveSensorId#
+HWiNFOSensorInstance=#DriveHWiNFOSensorInstance#
+HWiNFOEntryId=#DriveHWiNFOTotalActivityEntryId#
 HWiNFOType=CurrentValue
 MinValue=0
-MaxValue=#TempMax#
+MaxValue=100
+IfCondition=MeasureActivity > 0
+IfTrueAction=[!SetVariable "ActivityFontColor" #FontColor#][!Redraw]
+IfFalseAction=[!SetVariable "ActivityFontColor" #FontColorDisabled#][!Redraw]
+
+[MeasureTemperature]
+Measure=Plugin
+PlugIn=HWiNFO.dll
+HWiNFOSensorId=#DriveHWiNFOSMARTSensorId#
+HWiNFOSensorInstance=#DriveHWiNFOSensorInstance#
+HWiNFOEntryId=#DriveHWiNFOTemperatureEntryId#
+HWiNFOType=CurrentValue
+MinValue=0
+MaxValue=#TemperatureMax#
 UpdateDivider=#UpdateDividerTemp#
 
 [MeasureReadSpeed]
@@ -107,7 +121,7 @@ Meter=String
 MeasureName=MeasureDriveLabel
 MeterStyle=StringStyle | OffsetStyle
 Text="%1 (#Drive#)"
-TooltipText="[MeasureDriveIdentifier]#CRLF##LabelTotal#: [&MeasureScriptAutoScaleSize:AutoScale([&MeasureFreeSpace:MaxValue], 2)]"
+TooltipText="[MeasureDriveIdentifier]#CRLF##LabeDrivelTotal#: [&MeasureScriptAutoScaleSize:AutoScale([&MeasureFreeSpace:MaxValue], 2)]#RemainingLifeString#"
 UpdateDivider=-1
 DynamicVariables=1
 
@@ -115,9 +129,9 @@ DynamicVariables=1
 ; Temperature
 ; -----------
 
-[MeterTempString]
+[MeterTemperatureString]
 Meter=String
-MeasureName=MeasureTemp
+MeasureName=MeasureTemperature
 MeterStyle=StringStyle | AlignRightStyle | MeterTemperatureStringStyle
 UpdateDivider=#UpdateDividerTemp#
 
@@ -146,42 +160,42 @@ Container=MeterFreeSpaceBarContainer
 UpdateDivider=#UpdateDividerDriveSpace#
 
 ; ------------------------------------
-; Active time and Temperature labels
+; Activity and Temperature labels
 ; ------------------------------------
 
-[MeterActiveTimeLabel]
+[MeterActivityLabel]
 Meter=String
 MeterStyle=StringStyle | OffsetStyle | ContentHalfLeftLabel
-Text=#LabelActiveTime#
+Text=#LabelDriveActivity#
 UpdateDivider=-1
 
 [MeterReadWriteLabel]
 Meter=String
 MeterStyle=StringStyle | ContentHalfRightLabel
-Text=#LabelReadWrite#
+Text=#LabelDriveReadWrite#
 UpdateDivider=-1
 
 ; -------------
-; Active time
+; Activity
 ; -------------
 
-[MeterActiveTimeLine]
+[MeterActivityLine]
 Meter=Line
-MeasureName=MeasureActiveTime
+MeasureName=MeasureActivity
 MeterStyle=OffsetSmallStyle | LineMeterStyle | LineMeterHalfStyle
 
-[MeterActiveTimeLineContainer]
+[MeterActivityLineContainer]
 Meter=Shape
 MeterStyle=LineMeterHalfContainerStyle
 UpdateDivider=-1
 
-[MeterActiveTimeString]
+[MeterActivityString]
 Meter=String
 MeterStyle=StringStyle | MeterPercentStringStyle | LineMeterContainerStringAlignLeftTopStyle
-FontColor=#ActiveTimeFontColor#
+FontColor=#ActivityFontColor#
 DynamicVariables=1
-Text="[MeasureActiveTime:%,1]%"
-Container=MeterActiveTimeLineContainer
+Text="[MeasureActivity:%,1]%"
+Container=MeterActivityLineContainer
 
 ; ----------------
 ; Read/Write Speed

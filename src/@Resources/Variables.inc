@@ -145,30 +145,30 @@ DrivesHeaderBorderRight=1
 DrivesHeaderBorderBottom=1
 DrivesHeaderBorderLeft=1
 
-Drive_1_BorderTop=0
-Drive_1_BorderRight=1
-Drive_1_BorderBottom=1
-Drive_1_BorderLeft=1
+Drive1BorderTop=0
+Drive1BorderRight=1
+Drive1BorderBottom=1
+Drive1BorderLeft=1
 
-Drive_2_BorderTop=0
-Drive_2_BorderRight=1
-Drive_2_BorderBottom=1
-Drive_2_BorderLeft=1
+Drive2BorderTop=0
+Drive2BorderRight=1
+Drive2BorderBottom=1
+Drive2BorderLeft=1
 
-Drive_3_BorderTop=0
-Drive_3_BorderRight=1
-Drive_3_BorderBottom=1
-Drive_3_BorderLeft=1
+Drive3BorderTop=0
+Drive3BorderRight=1
+Drive3BorderBottom=1
+Drive3BorderLeft=1
 
-Drive_4_BorderTop=0
-Drive_4_BorderRight=1
-Drive_4_BorderBottom=1
-Drive_4_BorderLeft=1
+Drive4BorderTop=0
+Drive4BorderRight=1
+Drive4BorderBottom=1
+Drive4BorderLeft=1
 
-Drive_5_BorderTop=0
-Drive_5_BorderRight=1
-Drive_5_BorderBottom=1
-Drive_5_BorderLeft=1
+Drive5BorderTop=0
+Drive5BorderRight=1
+Drive5BorderBottom=1
+Drive5BorderLeft=1
 
 PlayerBorderTop=0
 PlayerBorderRight=1
