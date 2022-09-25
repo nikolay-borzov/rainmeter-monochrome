@@ -145,11 +145,9 @@ See `Drives` section in `Config.inc`
 You might want to load `Drive_Header` skin to add header for drives skins
 
 - `DriveHWiNFOSMARTSensorId` - S.M.A.R.T. Sensor ID (the same for all drives)
-- `DriveHWiNFODriveSensorId` - Drive Sensor ID (the same for all drives)
 - `Drive1`...`Drive6` - Drive's letter (e.g. `C:`)
 - `Drive1HWiNFOSensorInstance`...`Drive6HWiNFOSensorInstance` - S.M.A.R.T. Sensor Instance
 - `Drive1HWiNFOTemperatureEntryId`..`Drive6HWiNFOTemperatureEntryId` - S.M.A.R.T. Drive Temperature Entry ID
-- `Drive1HWiNFOTotalActivityEntryId`..`Drive6HWiNFOTotalActivityEntryId` - Drive Total Activity Entry ID
 - `Drive1HWiNFORemainingLifeEntryId`..`Drive6HWiNFORemainingLifeEntryId` - S.M.A.R.T. Drive Remaining Life Entry ID. Only available for SSD. Set to `-1` for HDD
 - `DrivesHeaderBorderTop`, `DrivesHeaderBorderRight`, `DrivesHeaderBorderBottom` and `DrivesHeaderBorderLeft` - Toggles Drives Header skin border visibility
 - `Drive1BorderTop`...`Drive6BorderTop`, `Drive1BorderRight`...`Drive6BorderRight`, `Drive1BorderBottom`...`Drive6BorderBottom` and `Drive1BorderLeft`...`Drive6BorderLeft` - Toggles skin border visibility

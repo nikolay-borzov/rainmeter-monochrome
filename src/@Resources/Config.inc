@@ -201,13 +201,11 @@ DrivesHeaderBorderLeft=1
 
 ; Common for all drives
 DriveHWiNFOSMARTSensorId=0xf0000100
-DriveHWiNFODriveSensorId=0xf0000101
 
 Drive1=C:
 ; Common for S.M.A.R.T. and Drive sensors
 Drive1HWiNFOSensorInstance=0x0
 Drive1HWiNFOTemperatureEntryId=0x1000000
-Drive1HWiNFOTotalActivityEntryId=0x7000002
 ; Only for SSD. Set to -1 to disable
 Drive1HWiNFORemainingLifeEntryId=0x7000000
 ; 0 - hide, 1 - show
@@ -219,7 +217,6 @@ Drive1BorderLeft=1
 Drive2=D:
 Drive2HWiNFOSensorInstance=0x1
 Drive2HWiNFOTemperatureEntryId=0x1000000
-Drive2HWiNFOTotalActivityEntryId=0x7000002
 ; Only for SSD. Set to -1 to disable
 Drive2HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show
@@ -231,7 +228,6 @@ Drive2BorderLeft=1
 Drive3=E:
 Drive3HWiNFOSensorInstance=0x2
 Drive3HWiNFOTemperatureEntryId=0x1000000
-Drive3HWiNFOTotalActivityEntryId=0x7000002
 ; Only for SSD. Set to -1 to disable
 Drive3HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show
@@ -243,7 +239,6 @@ Drive3BorderLeft=1
 Drive4=F:
 Drive4HWiNFOSensorInstance=0x3
 Drive4HWiNFOTemperatureEntryId=0x1000000
-Drive4HWiNFOTotalActivityEntryId=0x7000002
 ; Only for SSD. Set to -1 to disable
 Drive4HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show
@@ -255,7 +250,6 @@ Drive4BorderLeft=1
 Drive5=G:
 Drive5HWiNFOSensorInstance=0x4
 Drive5HWiNFOTemperatureEntryId=0x1000000
-Drive5HWiNFOTotalActivityEntryId=0x7000002
 ; Only for SSD. Set to -1 to disable
 Drive5HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show
@@ -267,7 +261,6 @@ Drive5BorderLeft=1
 Drive6=H:
 Drive6HWiNFOSensorInstance=0x5
 Drive6HWiNFOTemperatureEntryId=0x1000000
-Drive6HWiNFOTotalActivityEntryId=0x7000002
 ; Only for SSD. Set to -1 to disable
 Drive6HWiNFORemainingLifeEntryId=-1
 ; 0 - hide, 1 - show

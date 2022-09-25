@@ -56,14 +56,15 @@ Disabled=1
 IfAboveValue=0
 IfAboveAction=[!SetVariable "RemainingLifeString" "#CRLF##LabelDriveRemainingLife#: [MeasureRemainingLife]%"]
 
+; Use "LogicalDisk" in order to track logical disk parameters
 [MeasureActivity]
 Measure=Plugin
-Plugin=HWiNFO.dll
-HWiNFOSensorId=#DriveHWiNFODriveSensorId#
-HWiNFOSensorInstance=#DriveHWiNFOSensorInstance#
-HWiNFOEntryId=#DriveHWiNFOTotalActivityEntryId#
-HWiNFOType=CurrentValue
+Plugin=UsageMonitor
+Category=LogicalDisk
+Counter=% Disk Time
+Name=#Drive#
 MinValue=0
+; Performance Monitor reports values > 100
 MaxValue=100
 IfCondition=MeasureActivity > 0
 IfTrueAction=[!SetVariable "ActivityFontColor" #FontColor#][!Redraw]
